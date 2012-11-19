@@ -26,6 +26,7 @@ int main(void) {
     		//printf("\%s\%c\%s\n",hour,':',min);
     	}
     }
+
     itoaf(123,buff,9,ZEROS_ON_LEFT);
     printf("%s %s %s\n","<<<",buff,">>>");
     itoaf(123,buff,9,SPACES_ON_LEFT);
