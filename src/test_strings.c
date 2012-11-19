@@ -11,7 +11,8 @@
 #include <stdlib.h>
 #include "strings.h"
 
-
+////////////////////////////
+//!!!!!!!!!!!!!!!!!
 int main(void) {
 	uint8_t min[9];
 	uint8_t hour[9];
