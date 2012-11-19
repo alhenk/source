@@ -18,7 +18,7 @@ void reverse(uint8_t *str){
 	}
 }
  
-//integer to ASCII, formated: converts d into r symbols, placed in str
+//integer to ASCII, formated: converts d into field_width symbols, placed in str
 void itoaf(int16_t val, uint8_t *s,int16_t field_width,tIntFormat mode){
 	int16_t i,k,pads;
 	int16_t sign=0;
