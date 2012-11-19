@@ -13,20 +13,20 @@
 
 
 int main(void) {
-//	uint8_t min[9];
-//	uint8_t hour[9];
+	uint8_t min[9];
+	uint8_t hour[9];
 	uint8_t buff[9];
-//	int16_t i,j;
+	int16_t i,j;
 
 
-/*    for (i=0;i<24;i++){
+    for (i=0;i<24;i++){
     	for (j=0;j<60;j++){
     		itoaf(j,min,2,0);
     		itoaf(i,hour,2,0);
     		//printf("\%s\%c\%s\n",hour,':',min);
     	}
-    }*/
-/*    itoaf(123,buff,9,ZEROS_ON_LEFT);
+    }
+    itoaf(123,buff,9,ZEROS_ON_LEFT);
     printf("%s %s %s\n","<<<",buff,">>>");
     itoaf(123,buff,9,SPACES_ON_LEFT);
     printf("%s %s %s\n","<<<",buff,">>>");
@@ -65,7 +65,7 @@ int main(void) {
     itoaf(1234,buff,3,SPACES_ON_RIGHT);
     printf("%s%s%s\n","<<<",buff,">>>");
     puts("***123***");
-    puts(" ");*/
+    puts(" ");
 
 
     itoaf(1,buff,4,CENTERED_WITH_SPACES);
