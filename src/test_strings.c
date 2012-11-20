@@ -86,6 +86,22 @@ int main(void) {
     printf("%s%s%s\n","<<<",buff,">>>");
     puts("***1234***");
 
+    itoaf(1,buff,5,CENTERED_WITH_SPACES);
+    printf("%s%s%s\n","<<<",buff,">>>");
+    itoaf(-1,buff,5,CENTERED_WITH_SPACES);
+    printf("%s%s%s\n","<<<",buff,">>>");
+    itoaf(12,buff,5,CENTERED_WITH_SPACES);
+    printf("%s%s%s\n","<<<",buff,">>>");
+    itoaf(-21,buff,5,CENTERED_WITH_SPACES);
+    printf("%s%s%s\n","<<<",buff,">>>");
+    itoaf(-921,buff,5,CENTERED_WITH_SPACES);
+    printf("%s%s%s\n","<<<",buff,">>>");
+    itoaf(921,buff,5,CENTERED_WITH_SPACES);
+    printf("%s%s%s\n","<<<",buff,">>>");
+    itoaf(-9212,buff,5,CENTERED_WITH_SPACES);
+    printf("%s%s%s\n","<<<",buff,">>>");
+    puts("***12345***");
+
  	return EXIT_SUCCESS;
 }
 

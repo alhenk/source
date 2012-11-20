@@ -18,10 +18,9 @@ void reverse(uint8_t *str){
 	}
 }
  
-//integer to ASCII, formated: converts d into r symbols, placed in str
-void itoaf(int16_t val, uint8_t *s,int16_t field_width,tIntFormat mode){
+//integer to ASCII, formated: converts val into #field_width symbols, placed in str
+uint8_t *itoaf(int16_t val, uint8_t *str,int16_t field_width,tIntFormat mode){
 	int16_t k,idx,pads;
-	//int16_t shift;
 	int16_t sign=0;
 
 	if (val < 0){
@@ -30,108 +29,109 @@ void itoaf(int16_t val, uint8_t *s,int16_t field_width,tIntFormat mode){
 	}
 
 	for (idx=0;val;++idx){
-		s[idx]=val%10+'0';
+		str[idx]=val%10+'0';
 	    val=val/10;
 	}
-	s[idx]='\0';
+	str[idx]='\0';
 
-	if (strLength(s)+sign>field_width){
+	if (strLength(str)+sign>field_width){
 		for (k=0;k<field_width;++k){
-			s[k]='?';
+			str[k]='?';
 		}
-		s[k]='\0';
-		return;
+		str[k]='\0';
+		return str;
 	}
 
-	pads=field_width-strLength(s)-sign;
+	pads=field_width-strLength(str)-sign;
 
 	switch (mode){
 	case ZEROS_ON_LEFT:     //Pads with zeros on left
-		s[idx]='\0';
+		str[idx]='\0';
 		for (k=0;k<pads;++k,++idx){
-    		s[idx]='0';
+    		str[idx]='0';
 		}
 
 		if (sign){
-			s[idx]='-';
+			str[idx]='-';
 			++idx;
 		}
-		s[idx]='\0';
-		reverse(s);
+		str[idx]='\0';
+		reverse(str);
 	break;
 
 	case SPACES_ON_LEFT:    //Pads with spaces on left
 
 		if (sign){
-			s[idx]='-';
+			str[idx]='-';
 			++idx;
 		}
-		s[idx]='\0';
+		str[idx]='\0';
 		for (k=0;k<pads;++k,++idx){
-			s[idx]=' ';
+			str[idx]=' ';
 		}
-		s[idx]='\0';
-		reverse(s);
+		str[idx]='\0';
+		reverse(str);
 	break;
 
 	case SPACES_ON_RIGHT:   //Pads with spaces on right
 		if (sign){
-			s[idx]='-';
+			str[idx]='-';
 			++idx;
 		}
-		s[idx]='\0';
-		reverse(s);
+		str[idx]='\0';
+		reverse(str);
 		for (k=0;k<pads;++k,++idx){
-			s[idx]=' ';
+			str[idx]=' ';
 		}
-		s[idx]='\0';
+		str[idx]='\0';
 	break;
-	case CENTERED_WITH_SPACES:   //Pads with spaces on right
+	case CENTERED_WITH_SPACES:   //Pads centered with spaces
 		if (sign){
-			s[idx]='-';
+			str[idx]='-';
 			++idx;
-		}
-		s[idx]='\0';
 
-		for (k=0;k<pads/2;++k,++idx){
-			s[idx]=' ';
-		}
+			str[idx]='\0';
 
-/*		if ((pads/2)*2 == pads){
-			for (k=0;k<(pads/2);++k,++idx){
-				s[idx]=' ';
+			for (k=0;k<pads/2;++k,++idx){
+				str[idx]=' ';
+			}
+
+			str[idx]='\0';
+			reverse(str);
+			if ((pads/2)*2 == pads){
+				for (k=0;k<(pads/2);++k,++idx){
+					str[idx]=' ';
+				}
+			}else{
+				for (k=0;k<(pads/2)+1;++k,++idx){
+					str[idx]=' ';
+				}
 			}
 		}else{
-			for (k=0;k<(pads/2)+1;++k,++idx){
-				s[idx]=' ';
+			if ((pads/2)*2 == pads){
+				for (k=0;k<(pads/2);++k,++idx){
+					str[idx]=' ';
+				}
+			}else{
+				for (k=0;k<(pads/2)+1;++k,++idx){
+					str[idx]=' ';
+				}
 			}
-		}*/
 
+			str[idx]='\0';
+			reverse(str);
 
-
-		s[idx]='\0';
-		reverse(s);
-		if ((pads/2)*2 == pads){
-			for (k=0;k<(pads/2);++k,++idx){
-				s[idx]=' ';
-			}
-		}else{
-			for (k=0;k<(pads/2)+1;++k,++idx){
-				s[idx]=' ';
+			for (k=0;k<pads/2;++k,++idx){
+				str[idx]=' ';
 			}
 		}
-
-/*		for (k=0;k<pads/2;++k,++idx){
-					s[idx]=' ';
-				}*/
-
-
-		s[idx]='\0';
+		str[idx]='\0';
 
 	break;
 	default:
 	break;
 	}
+	return str;
 }
 
 
