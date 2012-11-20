@@ -1,5 +1,5 @@
 #include "strings.h"
-//
+
 int16_t strLength(uint8_t *str){
 	uint8_t *s;
 	for (s=str;*s;++s)
@@ -20,7 +20,8 @@ void reverse(uint8_t *str){
  
 //integer to ASCII, formated: converts d into r symbols, placed in str
 void itoaf(int16_t val, uint8_t *s,int16_t field_width,tIntFormat mode){
-	int16_t k,idx,pads,shift;
+	int16_t k,idx,pads;
+	//int16_t shift;
 	int16_t sign=0;
 
 	if (val < 0){
