@@ -1,5 +1,5 @@
 #include "strings.h"
-
+//
 int16_t strLength(uint8_t *str){
 	uint8_t *s;
 	for (s=str;*s;++s)
