@@ -20,7 +20,8 @@ void reverse(uint8_t *str){
  
 //integer to ASCII, formated: converts val into #field_width symbols, placed in str
 uint8_t *itoaf(int16_t val, uint8_t *str,int16_t field_width,tIntFormat mode){
-	int16_t k,idx,pads;
+	int16_t k,idx;
+	int16_t pads;
 	int16_t sign=0;
 
 	if (val < 0){
